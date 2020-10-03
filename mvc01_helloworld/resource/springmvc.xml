@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+<!--
+        name  /xxx   如果浏览器输入 xxx/hello 会找到HelloController
+        会执行 handleRequest() 方法 来处理请求
+        name 支持 / 等特殊符号
+-->
+    <bean name="/hello" class="com.sxt.controller.HelloController"></bean>
+
+<!--    扫描 把controller 注入到ioc容器中-->
+    <context:component-scan base-package="com.sxt">
+    </context:component-scan>
+
+<!--    注解驱动   会加载一些 -->
+    <mvc:annotation-driven></mvc:annotation-driven>
+
+</beans>
