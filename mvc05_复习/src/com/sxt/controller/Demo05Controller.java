@@ -32,13 +32,9 @@ import java.util.List;
  *      跳转页面还是 返回字符串?   返回的是字符串
  *
  *   如果ajax提交过来的是 ajax 参数绑定和 之前的操作一样
- *
- *
- *
  */
 //@ResponseBody
 //@Controller
-
 @RestController
 public class Demo05Controller {
 

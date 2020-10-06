@@ -20,10 +20,8 @@ public class Demo04Controller {
      *   问题?
      *   可以实现页面跳转, 不能实现数据共享
      *   @ModelAttribute("userKey")//跳转页面使用el表达式获取的对应的属性名称
-     *   把user数据共享到 user.jsp 页面 默认的key 是url的名称
+     *   把user数据共享到 user.jsp  页面 默认的key 是类首字符的名称
      *    @ModelAttribute(value = "u") 设置value 可指定key的名称
-     *
-     *
      *
      * @return
      */
