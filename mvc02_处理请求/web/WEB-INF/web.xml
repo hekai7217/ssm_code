@@ -26,7 +26,12 @@
     
     <servlet-mapping>
         <servlet-name>springmvc</servlet-name>
-        <url-pattern>/</url-pattern>
+<!--
+            *.do  请求中 通过后缀进行配置
+            只会处理 do结尾, html/jsp 等 都不会处理拦截
+-->
+
+        <url-pattern>*.do</url-pattern>
     </servlet-mapping>
 
 </web-app>

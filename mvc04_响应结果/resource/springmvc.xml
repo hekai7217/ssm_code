@@ -5,27 +5,27 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-<!--
-        name  /xxx   如果浏览器输入 xxx/hello 会找到HelloController
-        会执行 handleRequest() 方法 来处理请求
-        name 支持 / 等特殊符号
--->
-    <bean name="/hello" class="com.sxt.controller.HelloController"></bean>
 
 <!--    扫描 把controller 注入到ioc容器中-->
     <context:component-scan base-package="com.sxt">
     </context:component-scan>
 
-<!--    注解驱动   会加载一些
-    内部会在ioc容器中初始化
-      handlerMapping 处理器映射器
-      HandlerAdapter  处理器适配器
- -->
     <mvc:annotation-driven></mvc:annotation-driven>
 
-<!--   资源的处理 用 tomcat 默认的servlet处理器
-        tomcat的默认的servlet 不会拦截 静态资源(image/hmlt/js / css)
- -->
+<!--
+        页面 为了安全.一般都是 把页面 写到 web-inf下面
+        浏览器这里不能直接访问
+        服务器的内部可以访问的
+            mv.setViewName("/WEB-INF/view/success.jsp");  (内部操作和 forward 转发 )
 
+        可以配置视图解析器
+-->
+    <!-- 配置SpringMVC的视图解析器: 配置前缀和后缀 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 配置视图跳转的前缀 -->
+        <property name="prefix" value="/WEB-INF/view/"/>
+        <!-- 配置视图跳转的后缀 -->
+        <property name="suffix" value=".jsp"/>
+    </bean>
 
 </beans>

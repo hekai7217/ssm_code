@@ -27,15 +27,12 @@ import java.lang.annotation.Annotation;
  *                设置数据共享 和 转发到的视图页面
  *      2. 可以用注解注解开发
  *
- *  03 需要报控制器配置到 ioc容器中
+ *  03 需要把控制器配置到 ioc容器中
  *      创建一个springmvc的ioc容器
  *
  *  04  4.1配置一个前端控制器
  *          springmvc 提供好了, 在web.xml 中配置前端控制器
  *      4.2 启动ioc容器
- *
- *
- *
  *
  */
 public class HelloController implements Controller {
@@ -50,6 +47,8 @@ public class HelloController implements Controller {
         mv.addObject("name","周芷若");
 
         // 转发到 视图页面
+        // 通过视图解析器  可以配置 前缀和后缀
+        //  可以直接返回 字符串 找到指定的页面
         mv.setViewName("/success.jsp");
 
         return mv;

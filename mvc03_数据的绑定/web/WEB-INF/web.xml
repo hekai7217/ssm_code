@@ -4,11 +4,29 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+    <!-- 统一配置SpringMVC接受请求参数的编码 -->
+    <filter>
+        <filter-name>characterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>forceRequestEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>characterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
 <!--    配置前端控制器(springmvc 封装的servlet) -->
       <servlet>
           <servlet-name>springmvc</servlet-name>
           <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-
 <!--          dispatcherServlet 启动后 启动ioc容器
              读取config文件 初始化ioc容器
     -->
@@ -16,7 +34,6 @@
               <param-name>contextConfigLocation</param-name>
               <param-value>classpath:springmvc.xml</param-value>
           </init-param>
-
 <!--          如果没有配置这个 第一次访问 初始化ioc容器
             如果配置了这个 tomcat启动后创建容器
 -->
@@ -26,6 +43,7 @@
     
     <servlet-mapping>
         <servlet-name>springmvc</servlet-name>
+
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
