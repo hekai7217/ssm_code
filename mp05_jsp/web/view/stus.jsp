@@ -22,7 +22,7 @@
 </head>
 <body>
 
-    <a href="/ssm/view/addStu.jsp" class="btn btn-default" role="button" style="margin-left: 10px;margin-top: 5px"> 添加 </a>
+    <a href="/mp/view/addStu.jsp" class="btn btn-default" role="button" style="margin-left: 10px;margin-top: 5px"> 添加 </a>
 
         <table border="1" cellspacing="0" class="table table-bordered" style="width: 500px;margin-left: 10px">
 

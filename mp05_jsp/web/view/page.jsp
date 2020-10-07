@@ -22,7 +22,7 @@
 </head>
 <body>
 
-    <a href="/ssm/view/addStu.jsp" class="btn btn-default" role="button" style="margin-left: 10px;margin-top: 5px"> 添加 </a>
+    <a href="/mp/view/addStu.jsp" class="btn btn-default" role="button" style="margin-left: 10px;margin-top: 5px"> 添加 </a>
 
         <table border="1" cellspacing="0" class="table table-bordered" style="width: 500px;margin-left: 10px">
 
@@ -34,7 +34,7 @@
                 <td>操作</td>
             </tr>
 
-            <c:forEach var="stu" items="${stus}">
+            <c:forEach var="stu" items="${page.records}">
                 <tr>
                     <td>${stu.id}</td>
                     <td>${stu.name}</td>
@@ -42,7 +42,6 @@
                     <td>${stu.info}</td>
                     <td>
                         <a href="">修改</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="/ssm/delStu.do?id=${stu.id}">删除</a>
                     </td>
                 </tr>
@@ -59,11 +58,20 @@
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li class="active"><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
+                    <c:forEach var="index" begin="1" end="${pages}">
+<%--                        当前的页面高亮  --%>
+                        <c:if test="${page.current == index}">
+                            <li class="active">
+                            <a href="#">${index}</a>
+                            </li>
+                        </c:if>
+<%--                        其他页面 可以点击 --%>
+                        <c:if test="${page.current != index}">
+                            <li>
+                                <a href="/mp/page.do?current=${index}&pageSize=2">${index}</a>
+                            </li>
+                        </c:if>
+                    </c:forEach>
                     <li class="disabled">
                         <a href="#" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
@@ -73,7 +81,6 @@
             </nav>
         </div>
     </div>
-
 
 </body>
 </html>

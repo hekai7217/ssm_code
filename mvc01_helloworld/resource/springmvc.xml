@@ -23,9 +23,4 @@
  -->
     <mvc:annotation-driven></mvc:annotation-driven>
 
-<!--   资源的处理 用 tomcat 默认的servlet处理器
-        tomcat的默认的servlet 不会拦截 静态资源(image/hmlt/js / css)
- -->
-
-
 </beans>

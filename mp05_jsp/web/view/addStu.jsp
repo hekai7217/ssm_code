@@ -17,7 +17,7 @@
 
 </head>
 <body>
-<form action="/ssm/addStu.do" method="get">
+<form action="/mp/addStu.do" method="get">
 
     <div  class="row">
 
