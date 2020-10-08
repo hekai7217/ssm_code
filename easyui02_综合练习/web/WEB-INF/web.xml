@@ -3,14 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-
-
-    <!--    application容器  service 和 dao
-       ContextLoaderListener  监听器
-           web启动会 会 创建 application容器
-            加载 配置文件  可以把配置告诉他
-     -->
-
     <!-- 统一配置SpringMVC接受请求参数的编码 -->
     <filter>
         <filter-name>characterEncodingFilter</filter-name>
