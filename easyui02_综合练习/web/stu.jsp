@@ -191,12 +191,9 @@
                         $("#stuDataGrid").datagrid('reload');
                     }
                 },"json");
-
             }else{
                 $.messager.alert("提示","敢不敢选择一个stu编辑","info");
             }
-
-
         });
     });
 
